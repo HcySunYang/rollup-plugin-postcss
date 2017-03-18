@@ -4,7 +4,8 @@ import {
   buildDefault,
   buildWithParser,
   buildWithCssModules,
-  buildCombinedStyles
+  buildCombinedStyles,
+  buildExtract
 } from './tests/build';
 
 test('test postcss', async t => {
@@ -33,4 +34,9 @@ test('combine styles', async t => {
   const styles = window.getComputedStyle(document.body);
   t.is(styles.margin, '0px');
   t.is(styles.fontSize, '20px');
+})
+
+test('extract css', async t => {
+  const data = await buildExtract().catch(err => console.log(err.stack));
+  
 })
