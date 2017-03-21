@@ -32,8 +32,8 @@ export default function (options = {}) {
   const combineStyleTags = !!options.combineStyleTags;
   const extractCss = options.extractCss ? options.extractCss : false;
   const outputPath = extractCss.outputPath;
-  let fileName = extractCss.fileName;
   const concat = new Concat(true, 'styles.css', '\n');
+  let fileName = extractCss.fileName;
 
   const injectStyleFuncCode = styleInject.toString().replace(/styleInject/, injectFnName);
   let resCodeAll = '';
